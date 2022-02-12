@@ -1,0 +1,81 @@
+.area {
+	margin-left: 50px;
+	margin-top: 40px;
+	width: 300px;
+	height: 300px;
+	background-color: grey;
+}
+
+.line {
+	margin-left: 50px;
+	margin-top: 40px;
+	width: 300px;
+	height: 40px;
+	background-color: grey;
+}
+
+.title {
+	color: rgb(255, 12, 214);
+}
+
+body {		
+	background-color: linear-gradient("rgb(0,0,0)", white);
+}
+
+
+.parrent {
+	margin-top: 90px;
+	height: 255px;
+    text-align: center;
+}
+
+.flex{
+	display: inline-flex;
+	position: relative;
+}
+
+.back{
+	opacity: 0.2;
+	height: 255px;
+}
+
+
+.color-slider {
+
+	display: inline-block;
+	width: 40px;
+
+	background-color: white;
+	margin-left: 15px;
+	margin-right: 15px;
+	border-left-width: 20px;
+	border-radius: 11px;
+	position: relative;
+	/*border-radius: 10px;*/
+
+
+}
+
+.fill {
+	height: 2000px;
+}
+
+
+
+
+.ind{
+	height: 0px;
+	position: absolute;
+	bottom: 0px;
+	pointer-events: none;
+	opacity: 0.73;
+}
+
+.cli-2{
+	left: 70px;
+}
+
+.cli-3{
+	left: 140px;
+}
+
