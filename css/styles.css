@@ -30,6 +30,10 @@ body {
 	overflow: hidden;
 }
 
+.tab{
+	display: none;
+}
+
 
 .parrent {
 	background: rgba(0, 0, 0, 0) linear-gradient(rgb(0, 0, 0), white) repeat scroll 0% 0%;	
