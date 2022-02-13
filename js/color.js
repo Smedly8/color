@@ -20,8 +20,22 @@ var oldBlue = 0;
 var startMouse;
 
 const body = document.querySelector("body")
+const parrent = document.querySelector(".parrent")
 const all = document.querySelector("html")
+const tab = document.querySelector(".tab")
+console.log(tab)
 
+
+function setHeight(){
+	var height = document.documentElement.clientHeight;
+	console.log("h"+height)
+	all.style.maxHeight = `${height}px`;
+	tab.innerHTML = height;
+}
+setHeight()
+
+all.addEventListener("touchmove", setHeight)
+all.addEventListener("mo")
 
 function is_touch_device() {  
   try {  
@@ -34,17 +48,22 @@ function is_touch_device() {
 
 if (is_touch_device()){
 	document.addEventListener("touchstart", function(event){
+
+		tab.innerHTML = document.documentElement.clientHeight;
+
+		event.preventDefault();
 		if (event.target.closest(".color-slider")){
-			event.preventDefault();
+
 			mouseOn = true;
 			actSlider = event.target;
-
+			console.log(event.clientY)
 			startMouse = (255-Math.round(event.touches[0].pageY-slider1.getBoundingClientRect().top));
 			all.addEventListener("touchmove", function (event) {
+
 				if(mouseOn) {
 					actual = (255-Math.round(event.touches[0].pageY-actSlider.getBoundingClientRect().top));
 					diff = actual-startMouse;
-
+					console.log("diff",diff)
 
 					if(actSlider.closest(".cl-1")){
 						red = oldRed+diff;
@@ -151,7 +170,7 @@ document.addEventListener("mouseup", function(event){
 });
 
 function setColor(red, green, blue){
-	body.style.background = `linear-gradient(rgb(${red}, ${green}, ${blue}), white)`;
+	parrent.style.background = `linear-gradient(rgb(${red}, ${green}, ${blue}), white)`;
 	//console.log("setColor")
 }
 
