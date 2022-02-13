@@ -22,7 +22,7 @@ var startMouse;
 const body = document.querySelector("body")
 const parrent = document.querySelector(".parrent")
 const all = document.querySelector("html")
-const tab = document.querySelector(".tab")
+//const tab = document.querySelector(".tab")
 console.log(tab)
 
 
@@ -30,7 +30,7 @@ function setHeight(){
 	var height = document.documentElement.clientHeight;
 	console.log("h"+height)
 	all.style.maxHeight = `${height}px`;
-	tab.innerHTML = height;
+	//tab.innerHTML = height;
 }
 setHeight()
 
