@@ -38,13 +38,13 @@ if (is_touch_device()){
 			event.preventDefault();
 			mouseOn = true;
 			actSlider = event.target;
-			console.log(event.clientY)
+
 			startMouse = (255-Math.round(event.touches[0].pageY-slider1.getBoundingClientRect().top));
 			all.addEventListener("touchmove", function (event) {
 				if(mouseOn) {
 					actual = (255-Math.round(event.touches[0].pageY-actSlider.getBoundingClientRect().top));
 					diff = actual-startMouse;
-					console.log("diff",diff)
+
 
 					if(actSlider.closest(".cl-1")){
 						red = oldRed+diff;
