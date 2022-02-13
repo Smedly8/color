@@ -7,7 +7,6 @@ const ind2 = document.querySelector('.cli-2');
 const ind3 = document.querySelector('.cli-3');
 
 var actSlider = document.querySelector('.parrent');
-console.log(ind1)
 
 mouseOn = false;
 var red = 0;
@@ -22,6 +21,79 @@ var startMouse;
 
 const body = document.querySelector("body")
 const all = document.querySelector("html")
+
+
+function is_touch_device() {  
+  try {  
+    document.createEvent("TouchEvent");  
+    return true;  
+  } catch (e) {  
+    return false;  
+  }  
+}
+
+if (is_touch_device()){
+	document.addEventListener("touchstart", function(event){
+		if (event.target.closest(".color-slider")){
+			event.preventDefault();
+			mouseOn = true;
+			actSlider = event.target;
+			console.log(event.clientY)
+			startMouse = (255-Math.round(event.touches[0].pageY-slider1.getBoundingClientRect().top));
+			all.addEventListener("touchmove", function (event) {
+				if(mouseOn) {
+					actual = (255-Math.round(event.touches[0].pageY-actSlider.getBoundingClientRect().top));
+					diff = actual-startMouse;
+					console.log("diff",diff)
+
+					if(actSlider.closest(".cl-1")){
+						red = oldRed+diff;
+						if(red<0){red = 0};
+						if(red>255){red = 255};
+						//slider1.innerHTML =  `${red}`;
+						ind1.style.background = `rgb(${red}, 0, 0)`;
+						ind1.style.height = `${red}`+"px";
+						setColor(red, green, blue);
+					}
+
+					if(actSlider.closest(".cl-2")){
+						green = oldGreen+diff;
+						if(green<0){green = 0};
+						if(green>255){green = 255};
+						//slider1.innerHTML =  `${red}`;
+						ind2.style.background = `rgb(0, ${green}, 0)`;
+						ind2.style.height = `${green}`+"px";
+						setColor(red, green, blue);
+					}
+
+					if(actSlider.closest(".cl-3")){
+						blue = oldBlue+diff;
+						if(blue<0){blue = 0};
+						if(blue>255){blue = 255};
+						//slider1.innerHTML =  `${red}`;
+						ind3.style.background = `rgb(0, 0, ${blue})`;
+						ind3.style.height = `${blue}`+"px";
+						setColor(red, green, blue);
+					}
+				}
+			});
+		}
+	}, false)
+
+	document.addEventListener("touchend", function(event){
+		console.log("TouchEnd!!!!!!!!!!!!!!!!!!!!!!!!")
+		mouseOn = false;
+		oldRed = red;
+		oldGreen = green;
+		oldBlue = blue;
+		actSlider = document.querySelector('.parrent');
+		console.log(mouseOn);
+	});
+} //Touch version End
+
+
+//PC version________________________________________________________________________________________________
+
 
 document.addEventListener("mousedown", function(event){
 	console.log(event.clientY, slider1.getBoundingClientRect().bottom, slider1.getBoundingClientRect().top)
