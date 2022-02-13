@@ -18,8 +18,14 @@
 	color: rgb(255, 12, 214);
 }
 
+html{
+	overflow: hidden;
+}
+
 body {		
 	background-color: linear-gradient("rgb(0,0,0)", white);
+	overflow: hidden;
+	height: 100%;
 }
 
 
@@ -57,7 +63,7 @@ body {
 }
 
 .fill {
-	height: 2000px;
+	height: 2200px;
 }
 
 
