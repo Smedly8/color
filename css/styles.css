@@ -19,17 +19,23 @@
 }
 
 html{
-	overflow: hidden;
+	height: 100%;
+	width: 100%;
 }
 
-body {		
+
+body {	
+	margin: 0px;
 	height: 100%;
+	overflow: hidden;
 }
 
 
 .parrent {
-	margin-top: 90px;
-	height: 255px;
+	background: rgba(0, 0, 0, 0) linear-gradient(rgb(0, 0, 0), white) repeat scroll 0% 0%;	
+	width: 100%;
+	padding-top: 90px;
+	height: 100%;
     text-align: center;
 }
 
@@ -60,9 +66,7 @@ body {
 
 }
 
-.fill {
-	height: 2200px;
-}
+
 
 
 
